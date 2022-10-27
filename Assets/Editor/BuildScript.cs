@@ -23,6 +23,7 @@ public class BuildEditor
         PlayerSettings.WebGL.exceptionSupport = WebGLExceptionSupport.ExplicitlyThrownExceptionsOnly;
         PlayerSettings.WebGL.linkerTarget = WebGLLinkerTarget.Wasm;
         PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
+        PlayerSettings.WebGL.wasmStreaming = true;
 
         Build(options);
     }
