@@ -15,7 +15,9 @@ public class WebAvatarLoader : MonoBehaviour
     private Vector3 originRotate;
     Vector3 uiPos = Vector3.zero;
 
-    public Animator animator;
+    // public Animator animator;
+    public RuntimeAnimatorController animController;
+    public Avatar animAvatar;
 
     private Dictionary<string, GameObject> dicAvatar = new Dictionary<string, GameObject>();
 
@@ -45,12 +47,12 @@ public class WebAvatarLoader : MonoBehaviour
         PartnerSO partner = Resources.Load<PartnerSO>("Partner");
         WebInterface.SetupRpmFrame(partner.Subdomain);
     }
-    
+
     //public void OnWebViewAvatarGenerated(string avatarUrl)
     //{
     //    LoadAvatar(avatarUrl);
     //}
-    
+
     public void LoadAvatar(string avatarUrl)
     {
         AvatarURL = avatarUrl;
@@ -154,8 +156,11 @@ public class WebAvatarLoader : MonoBehaviour
         spawnPoint.transform.eulerAngles = originRotate;
 
         curAnimator = character.GetComponent<Animator>();
-        curAnimator.runtimeAnimatorController = animator.runtimeAnimatorController;
+        // curAnimator.runtimeAnimatorController = animator.runtimeAnimatorController;
+        curAnimator.runtimeAnimatorController = animController;
+        curAnimator.avatar = animAvatar;
         curAnimator.applyRootMotion = false;
+
         dicAvatar.Add(AvatarURL, character);
 
         Debug.Log("OnAvatarLoaded : " + AvatarURL);
@@ -164,7 +169,7 @@ public class WebAvatarLoader : MonoBehaviour
         UISystem.Instance.SetLoading(false, Vector3.zero);
         StartCoroutine(AvatarLoadComplete());
 
-        StartAvatarRandomAction();
+        // StartAvatarRandomAction();
     }
 
     private void Subscribe()

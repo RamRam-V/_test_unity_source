@@ -1509,8 +1509,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1490201240}
-  animator: {fileID: 3998646170114289315, guid: 662e69567737c894b980175e60e1cf3b,
-    type: 3}
+  animController: {fileID: 9100000, guid: 030eb6d5e0160864284cb74d981fda80, type: 2}
+  animAvatar: {fileID: 9000000, guid: 4545f85b42d81c64eb3d1f114fcc353b, type: 2}
 --- !u!1 &1990053194
 GameObject:
   m_ObjectHideFlags: 0
