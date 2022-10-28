@@ -157,9 +157,9 @@ public class WebAvatarLoader : MonoBehaviour
 
         curAnimator = character.GetComponent<Animator>();
         // curAnimator.runtimeAnimatorController = animator.runtimeAnimatorController;
-        curAnimator.runtimeAnimatorController = animController;
         curAnimator.avatar = animAvatar;
-        curAnimator.applyRootMotion = false;
+        curAnimator.runtimeAnimatorController = animController;
+        curAnimator.applyRootMotion = true;
 
         dicAvatar.Add(AvatarURL, character);
 
@@ -168,7 +168,7 @@ public class WebAvatarLoader : MonoBehaviour
 
         UISystem.Instance.SetLoading(false, Vector3.zero);
         StartCoroutine(AvatarLoadComplete());
-
+        AvatarLoadComplete();
         // StartAvatarRandomAction();
     }
 

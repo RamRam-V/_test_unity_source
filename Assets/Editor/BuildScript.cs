@@ -18,12 +18,12 @@ public class BuildEditor
         options.target = BuildTarget.WebGL;
         options.options = BuildOptions.Development;
 
-
         PlayerSettings.WebGL.emscriptenArgs = "-s ALLOW_MEMORY_GROWTH=1";
         PlayerSettings.WebGL.exceptionSupport = WebGLExceptionSupport.ExplicitlyThrownExceptionsOnly;
         PlayerSettings.WebGL.linkerTarget = WebGLLinkerTarget.Wasm;
         PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
         PlayerSettings.WebGL.wasmStreaming = true;
+
 
         Build(options);
     }
